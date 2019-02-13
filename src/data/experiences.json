@@ -1,0 +1,81 @@
+[
+  {
+    "company": "THEOplayer",
+    "role": "Team Lead / Full Stack Developer",
+    "startDate": "2018-03-25T00:00:00.000Z",
+    "endDate": null,
+    "description": [
+      "In March 2018 I dive into a new adventure at THEOplayer. I start out as a Full Stack Developer where I work on new services and tools to improve and enhance the THEOplayer experience.",
+      "After a few months I grow into the role of Team Lead and build out a team to further improve and build these experiences.",
+      "I also shift my technical focus. I dive into the world of JavaScript and NodeJS with a big focus on TypeScript, React and GraphQL!"
+    ],
+    "tags": [
+      "NodeJS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "GraphQL",
+      "Apollo",
+      "Docker",
+      "Jenkins"
+    ]
+  },
+
+  {
+    "company": "Boondoggle",
+    "role": "Analyst / Software Developer",
+    "startDate": "2015-11-01T00:00:00.000Z",
+    "endDate": "2018-03-22T00:00:00.000Z",
+    "description": [
+      "In November 2015 I join Boondoggle, I get to start on a new team that builds out one largest projects within the company",
+      "As part of a larger consortium our team builds out the frontend tier for Argenta Netherlands, a large bank in the Netherlands. We build out the basis for a new online banking platform within a year. The next year we continue adding additional features and extra services to enhance the Argenta online banking experience.",
+      "In this large project most of my focus goes to integrating a collection of different backends and combine them into an easy to consume API for the frontend application powered by Sitecore and Angular.",
+      "I also become a Sitecore Professional Developer by obtaining my Sitecore Certification"
+    ],
+    "tags": [
+      "C#",
+      "ASP.NET",
+      "WCF",
+      "REST",
+      "CQRS",
+      "AutoMapper",
+      "Sitecore",
+      "TypeScript",
+      "Angular"
+    ]
+  },
+  {
+    "company": "SBB Accountants & Adviseurs",
+    "role": "Software Developer",
+    "startDate": "2012-10-15T00:00:00.000Z",
+    "endDate": "2015-11-01T00:00:00.000Z",
+    "description": [
+      "In October 2012 I join SBB Accountants & Adviseurs. As a junior I get my first experience as a .NET developer.",
+      "I end up becoming the lead developer of the project in charge of rewriting their core in-house invoicing system which is used to bill over 10 000 active customers on a monthly basis for various accounting services.",
+      "By the end of 2014, I am responsbile for developing the part in charge of the direct debits and build a SEPA (Single Euro Payments Area) complient direct debit system."
+    ],
+    "tags": ["C#", ".NET Winforms", "Nhibernate", "SQL"]
+  },
+  {
+    "company": "Carabas",
+    "role": "Intern Developer",
+    "startDate": "2012-04-01T00:00:00.000Z",
+    "endDate": "2012-06-30T00:00:00.000Z",
+    "description": [
+      "In April 2012 I get my first professional experience in the field thanks to a great internship at Carabas.",
+      "I get to work as a PHP developer to help and maintain their in-house Content Management System and e-mail marketing platform."
+    ],
+    "tags": ["PHP", "CodeIgniter"]
+  },
+  {
+    "company": "SKBL Scholengemeenschap",
+    "role": "Student / Developer",
+    "startDate": "2012-02-01T00:00:00.000Z",
+    "endDate": "2012-03-01T00:00:00.000Z",
+    "description": [
+      "In Februari 2012 I get to work on an online platform for managing different organisations who support and aid in the education offered by the SKBL-school-community.",
+      "The platform, as graduation project together with 3 other students, uses technologies like ASP.NET MVC and Entity Framework "
+    ],
+    "tags": ["C#", "ASP.NET", "Entity Framework"]
+  }
+]

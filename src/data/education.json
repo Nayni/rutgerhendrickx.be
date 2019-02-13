@@ -1,0 +1,23 @@
+[
+  {
+    "institution": "Katholieke Hogeschool Leuven",
+    "degree": "Bachelor's Degree",
+    "studySubject": "Applied Computer Science",
+    "startDate": "2009-09-01T00:00:00.000Z",
+    "endDate": "2012-09-01T00:00:00.000Z"
+  },
+  {
+    "institution": "KU Leuven",
+    "degree": "Bachelor's Degree",
+    "studySubject": "Computer Science",
+    "startDate": "2008-09-01T00:00:00.000Z",
+    "endDate": "2009-09-01T00:00:00.000Z"
+  },
+  {
+    "institution": "Sint-Martinus Overijse",
+    "degree": "High School",
+    "studySubject": "Mathematics and economy",
+    "startDate": "2001-09-01T00:00:00.000Z",
+    "endDate": "2008-09-01T00:00:00.000Z"
+  }
+]
