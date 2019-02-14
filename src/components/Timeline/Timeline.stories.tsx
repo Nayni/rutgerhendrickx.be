@@ -1,4 +1,3 @@
-// tslint:disable:no-implicit-dependencies
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
