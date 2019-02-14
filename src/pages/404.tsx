@@ -1,7 +1,6 @@
 import React from "react";
 
 import Page from "../components/Page";
-import withRoot from "../withRoot";
 
 const NotFoundPage: React.FC = () => (
   <Page title="404: Not found">
@@ -10,4 +9,4 @@ const NotFoundPage: React.FC = () => (
   </Page>
 );
 
-export default withRoot(NotFoundPage);
+export default NotFoundPage;
