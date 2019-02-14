@@ -8,6 +8,7 @@ import { styled } from "@material-ui/styles";
 
 import Section, { SectionTitle } from "../Section";
 import Timeline, {
+  TimelineContent,
   TimelineItem,
   TimelineSubTitle,
   TimelineTitle
@@ -18,10 +19,6 @@ import ExperienceChips from "./ExperienceChips";
 interface ExperienceProps {
   experiences: ExperienceFragmentProps[];
 }
-
-const TimelineContent = styled("div")({
-  padding: "16px"
-});
 
 const TimelineText = styled(Typography)({
   marginTop: "10px"

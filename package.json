@@ -44,24 +44,26 @@
     "yup": "^0.26.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addons": "^4.1.11",
+    "@storybook/react": "^4.1.11",
     "@types/classnames": "^2.2.7",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.1",
     "@types/react-helmet": "^5.0.8",
     "@types/react-jss": "^8.6.2",
+    "@types/storybook__react": "^4.0.1",
     "@types/yup": "^0.26.9",
+    "babel-loader": "^8.0.5",
+    "babel-preset-react-app": "^7.0.1",
     "prettier": "^1.16.4",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3",
-    "@storybook/react": "^4.1.11",
-    "@storybook/addon-actions": "^4.1.11",
-    "@storybook/addon-links": "^4.1.11",
-    "@storybook/addons": "^4.1.11",
-    "@babel/core": "^7.2.2",
-    "babel-loader": "^8.0.5"
+    "typescript": "^3.3.3"
   },
   "repository": {
     "type": "git",

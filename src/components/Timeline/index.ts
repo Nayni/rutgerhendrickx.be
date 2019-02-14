@@ -6,3 +6,5 @@ export { default as TimelineTitle } from "./TimelineTitle";
 export * from "./TimelineTitle";
 export { default as TimelineSubTitle } from "./TimeilneSubTitle";
 export * from "./TimeilneSubTitle";
+export { default as TimelineContent } from "./TimelineContent";
+export * from "./TimelineContent";

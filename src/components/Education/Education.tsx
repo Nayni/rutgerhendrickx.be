@@ -8,6 +8,7 @@ import { styled } from "@material-ui/styles";
 
 import Section, { SectionTitle } from "../Section";
 import Timeline, {
+  TimelineContent,
   TimelineItem,
   TimelineSubTitle,
   TimelineTitle
@@ -16,10 +17,6 @@ import Timeline, {
 interface EducationProps {
   educations: EducationFragmentProps[];
 }
-
-const TimelineContent = styled("div")({
-  padding: "16px"
-});
 
 const DegreeText = styled(Typography)({
   lineHeight: "inherit",
