@@ -19,6 +19,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   defaultConfig.resolve.mainFields = ["browser", "module", "main"];
 
+  // Enable TypeScript with Babel loader & create-react-app preset.
   defaultConfig.module.rules.push({
     test: /\.(ts|tsx)$/,
     loader: require.resolve("babel-loader"),
