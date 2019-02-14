@@ -1,7 +1,5 @@
 import React from "react";
 
-import { graphql } from "gatsby";
-
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import { styled } from "@material-ui/styles";
@@ -15,6 +13,16 @@ import Timeline, {
 } from "../Timeline";
 import ExperienceChip from "./ExperienceChip";
 import ExperienceChips from "./ExperienceChips";
+
+export interface ExperienceFragmentProps {
+  id: string;
+  company: string;
+  role: string;
+  start: string;
+  end: string;
+  description: string[];
+  tags: string[];
+}
 
 interface ExperienceProps {
   experiences: ExperienceFragmentProps[];
@@ -64,27 +72,5 @@ const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
     </Section>
   );
 };
-
-export interface ExperienceFragmentProps {
-  id: string;
-  company: string;
-  role: string;
-  start: string;
-  end: string;
-  description: string[];
-  tags: string[];
-}
-
-export const EXPERIENCE_FRAGMENT_QUERY = graphql`
-  fragment ExperienceFragment on ExperiencesJson {
-    id
-    company
-    role
-    start: startDate(formatString: "MMM YYYY")
-    end: endDate(formatString: "MMM YYYY")
-    description
-    tags
-  }
-`;
 
 export default Experience;

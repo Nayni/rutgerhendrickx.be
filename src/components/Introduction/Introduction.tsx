@@ -1,50 +1,36 @@
 import React from "react";
 
-import { graphql } from "gatsby";
-
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import { styled } from "@material-ui/styles";
 
 import Section, { SectionTitle } from "../Section";
+import IntroductionPaper from "./IntroductionPaper";
+import IntroductionPaperContent from "./IntroductionPaperContent";
+import IntroductionParagraph from "./IntroductionParagraph";
+
+export interface IntroductionFragmentProps {
+  description: string[];
+}
 
 interface IntroductionProps {
   description: string[];
 }
 
-const IntroPaper = styled(Paper)({
-  width: "100%"
-});
-
-const PaperContent = styled("div")({
-  padding: "16px",
-  width: "100%"
-});
-
-const IntroTypography = styled(Typography)({
-  marginBottom: "10px",
-  "&:last-child": {
-    marginBottom: "0px"
-  }
-});
-
 const Introduction: React.FC<IntroductionProps> = ({ description }) => {
   return (
     <Section>
       <SectionTitle>Hey there!</SectionTitle>
-      <IntroPaper>
-        <PaperContent>
+      <IntroductionPaper>
+        <IntroductionPaperContent>
           {description.map((paragraph, i) => (
-            <IntroTypography key={`intro-paragraph-${i}`}>
+            <IntroductionParagraph key={`intro-paragraph-${i}`}>
               {paragraph}
-            </IntroTypography>
+            </IntroductionParagraph>
           ))}
-        </PaperContent>
+        </IntroductionPaperContent>
         <Divider />
-        <PaperContent>
+        <IntroductionPaperContent>
           <Grid container justify="center" spacing={8}>
             <Grid item>
               <Button color="secondary" variant="contained">
@@ -57,21 +43,10 @@ const Introduction: React.FC<IntroductionProps> = ({ description }) => {
               </Button>
             </Grid>
           </Grid>
-        </PaperContent>
-      </IntroPaper>
+        </IntroductionPaperContent>
+      </IntroductionPaper>
     </Section>
   );
 };
-
-export interface IntroductionFragmentProps {
-  description: string[];
-}
-
-export const INTRODUCTION_FRAGMENT_QUERY = graphql`
-  fragment IntroductionFragment on IntroductionJson {
-    id
-    description
-  }
-`;
 
 export default Introduction;

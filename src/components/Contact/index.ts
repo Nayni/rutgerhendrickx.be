@@ -1,2 +1,10 @@
 export { default } from "./Contact";
 export * from "./Contact";
+export { default as ContactForm } from "./ContactForm";
+export * from "./ContactForm";
+export { default as ContactImage } from "./ContactImage";
+export * from "./ContactImage";
+export { default as ContactPaper } from "./ContactPaper";
+export * from "./ContactPaper";
+export { default as ContactPaperContent } from "./ContactPaperContent";
+export * from "./ContactPaperContent";

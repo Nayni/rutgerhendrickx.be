@@ -1,30 +1,27 @@
 import React from "react";
 
-import { graphql } from "gatsby";
 import { FluidObject } from "gatsby-image";
 
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
-import Paper from "@material-ui/core/Paper";
-import { styled } from "@material-ui/styles";
 
 import Section, { SectionTitle } from "../Section";
 import ContactForm from "./ContactForm";
 import ContactImage from "./ContactImage";
+import ContactPaper from "./ContactPaper";
+import ContactPaperContent from "./ContactPaperContent";
+
+export interface ContactImageFragmentProps {
+  contactImage: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+}
 
 interface ContactProps {
   contactImage: FluidObject;
 }
-
-const ContactPaper = styled(Paper)({
-  width: "100%",
-  height: "100%"
-});
-
-const Content = styled("div")({
-  padding: "16px",
-  width: "100%"
-});
 
 const Contact: React.FC<ContactProps> = ({ contactImage }) => {
   return (
@@ -33,9 +30,9 @@ const Contact: React.FC<ContactProps> = ({ contactImage }) => {
       <Grid container spacing={16}>
         <Grid item xs={12} md={6}>
           <ContactPaper>
-            <Content>
+            <ContactPaperContent>
               <ContactForm />
-            </Content>
+            </ContactPaperContent>
           </ContactPaper>
         </Grid>
         <Hidden only={["xs"]}>
@@ -49,25 +46,5 @@ const Contact: React.FC<ContactProps> = ({ contactImage }) => {
     </Section>
   );
 };
-
-export interface ContactImageFragmentProps {
-  contactImage: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-}
-
-export const CONTACT_IMAGE_FRAGMENT = graphql`
-  fragment ContactImageFragment on Query {
-    contactImage: file(relativePath: { eq: "mailbox.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 500, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`;
 
 export default Contact;

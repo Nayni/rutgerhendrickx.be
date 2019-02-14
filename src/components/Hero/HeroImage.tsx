@@ -8,6 +8,7 @@ const HeroImage = styled(Img)({
   width: "100%",
   zIndex: -1,
   height: "350px",
+  backgroundColor: "darkgray",
   "& > img": {
     objectFit: "cover",
     objectPosition: "50% 50%"

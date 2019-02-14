@@ -11,8 +11,9 @@ import Education, { EducationFragmentProps } from "../components/Education";
 import Experience, { ExperienceFragmentProps } from "../components/Experience";
 import Header from "../components/Header";
 import { HeroImageFragmentProps } from "../components/Hero";
-import Introduction from "../components/Introduction";
-import { IntroductionFragmentProps } from "../components/Introduction/Introduction";
+import Introduction, {
+  IntroductionFragmentProps
+} from "../components/Introduction";
 import Page from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
 

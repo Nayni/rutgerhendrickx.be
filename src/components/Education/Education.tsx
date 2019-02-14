@@ -1,7 +1,5 @@
 import React from "react";
 
-import { graphql } from "gatsby";
-
 import Typography from "@material-ui/core/Typography";
 import { School } from "@material-ui/icons";
 import { styled } from "@material-ui/styles";
@@ -13,6 +11,15 @@ import Timeline, {
   TimelineSubTitle,
   TimelineTitle
 } from "../Timeline";
+
+export interface EducationFragmentProps {
+  id: string;
+  institution: string;
+  degree: string;
+  studySubject: string;
+  start: string;
+  end: string;
+}
 
 interface EducationProps {
   educations: EducationFragmentProps[];
@@ -49,25 +56,5 @@ const Education: React.FC<EducationProps> = ({ educations }) => {
     </Section>
   );
 };
-
-export interface EducationFragmentProps {
-  id: string;
-  institution: string;
-  degree: string;
-  studySubject: string;
-  start: string;
-  end: string;
-}
-
-export const EDUCATION_FRAGMENT_QUERY = graphql`
-  fragment EducationFragment on EducationJson {
-    id
-    institution
-    degree
-    studySubject
-    start: startDate(formatString: "YYYY")
-    end: endDate(formatString: "YYYY")
-  }
-`;
 
 export default Education;

@@ -1,7 +1,6 @@
 import React from "react";
 
 import cx from "classnames";
-import { graphql } from "gatsby";
 
 import Grid from "@material-ui/core/Grid";
 import { Theme } from "@material-ui/core/styles";
@@ -11,6 +10,13 @@ import { makeStyles } from "@material-ui/styles";
 import CertificateIcon from "../icons/CertificateIcon";
 import Section, { SectionTitle } from "../Section";
 import CertificationCard from "./CertificationCard";
+
+export interface CertificationFragmentProps {
+  id: string;
+  name: string;
+  authority: string;
+  date: string;
+}
 
 interface CertificationsProps {
   certifications: CertificationFragmentProps[];
@@ -63,21 +69,5 @@ const Certifications: React.FC<CertificationsProps> = ({ certifications }) => {
     </Section>
   );
 };
-
-export interface CertificationFragmentProps {
-  id: string;
-  name: string;
-  authority: string;
-  date: string;
-}
-
-export const CERTIFICATION_FRAGMENT_QUERY = graphql`
-  fragment CertificationFragment on CertificationsJson {
-    id
-    name
-    authority
-    date(formatString: "MMMM YYYY")
-  }
-`;
 
 export default Certifications;
