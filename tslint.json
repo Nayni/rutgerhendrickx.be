@@ -10,6 +10,7 @@
     "object-literal-sort-keys": false,
     "no-empty-interface": false,
     "no-shadowed-variable": true,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-implicit-dependencies": false
   }
 }
