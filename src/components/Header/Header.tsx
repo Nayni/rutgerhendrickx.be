@@ -4,8 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { styled } from "@material-ui/styles";
 import { FluidObject } from "gatsby-image";
 
-import Hero, { HeroText } from "../Hero";
-import HeroSubText from "../Hero/HeroSubText";
+import Hero, { HeroSubText, HeroText } from "../Hero";
 import ProfilePicture from "../ProfilePicture";
 import HeaderGridItem from "./HeaderGridItem";
 import HeaderSocials from "./HeaderSocials";
