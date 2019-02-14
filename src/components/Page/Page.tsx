@@ -1,17 +1,16 @@
 import React from "react";
 
 import SEO, { SEOProps } from "../SEO";
-import { StyleProps } from "../styles";
 
 type PageOwnProps = Readonly<{
   children: React.ReactNode;
 }>;
 
-type PageProps = PageOwnProps & SEOProps & StyleProps;
+type PageProps = PageOwnProps & SEOProps;
 
-const Page: React.FC<PageProps> = ({ className, children, ...seoProps }) => {
+const Page: React.FC<PageProps> = ({ children, ...seoProps }) => {
   return (
-    <div className={className}>
+    <div>
       <SEO {...seoProps} />
       {children}
     </div>
