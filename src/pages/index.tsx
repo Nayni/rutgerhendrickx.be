@@ -20,7 +20,7 @@ import Introduction, {
 } from "../components/Introduction";
 import Page from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
-import { submitToFormcarry } from "../utils/formcarry";
+import { submitToFormcarry } from "../utils";
 
 interface IndexQueryProps {
   data: HeroImageFragmentProps &
