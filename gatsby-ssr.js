@@ -14,6 +14,7 @@ install();
 
 const CssBaseline = require("@material-ui/core/CssBaseline").default;
 const { SheetsRegistry } = require("jss");
+const SnackbarProvider = require("notistack").SnackbarProvider;
 
 const { createTheme } = require("./src/createTheme");
 
@@ -46,8 +47,10 @@ const wrapRootElement = ({ element, pathname }) => {
       generateClassName={generateClassName}
     >
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {element}
+        <SnackbarProvider maxSnack={3}>
+          <CssBaseline />
+          {element}
+        </SnackbarProvider>
       </ThemeProvider>
     </StylesProvider>
   );

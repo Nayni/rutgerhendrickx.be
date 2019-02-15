@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 
 import Section, { SectionTitle } from "../Section";
-import ContactForm from "./ContactForm";
+import ContactForm, { ContactFormProps } from "./ContactForm";
 import ContactImage from "./ContactImage";
 import ContactPaper from "./ContactPaper";
 import ContactPaperContent from "./ContactPaperContent";
@@ -23,7 +23,9 @@ interface ContactProps {
   contactImage: FluidObject;
 }
 
-const Contact: React.FC<ContactProps> = ({ contactImage }) => {
+type AllProps = ContactProps & ContactFormProps;
+
+const Contact: React.FC<AllProps> = ({ contactImage, onSubmitForm }) => {
   return (
     <Section>
       <SectionTitle>Contact</SectionTitle>
@@ -31,7 +33,7 @@ const Contact: React.FC<ContactProps> = ({ contactImage }) => {
         <Grid item xs={12} md={6}>
           <ContactPaper>
             <ContactPaperContent>
-              <ContactForm />
+              <ContactForm onSubmitForm={onSubmitForm} />
             </ContactPaperContent>
           </ContactPaper>
         </Grid>

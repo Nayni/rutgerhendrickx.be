@@ -14,6 +14,7 @@ install();
 import { configure, addDecorator } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { SnackbarProvider } from "notistack";
 import { createTheme } from "../src/createTheme";
 
 // automatically import all files ending in *.stories.js
@@ -48,18 +49,20 @@ const generateClassName = createGenerateClassName({
 const storyDecorator = storyFn => (
   <StylesProvider generateClassName={generateClassName}>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div
-        style={{
-          width: "98%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: "10px",
-          marginBottom: "10px"
-        }}
-      >
-        {storyFn()}
-      </div>
+      <SnackbarProvider maxSnack={3}>
+        <CssBaseline />
+        <div
+          style={{
+            width: "98%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: "10px",
+            marginBottom: "10px"
+          }}
+        >
+          {storyFn()}
+        </div>
+      </SnackbarProvider>
     </ThemeProvider>
   </StylesProvider>
 );

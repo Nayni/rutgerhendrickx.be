@@ -3,10 +3,18 @@ import React from "react";
 import { object, string } from "yup";
 
 import { Formik } from "formik";
+import { InjectedNotistackProps, withSnackbar } from "notistack";
 
-import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import TextField from "@material-ui/core/TextField";
+import FormButton from "./FormButton";
+import FormTextField from "./FormTextField";
+
+export interface ContactFormProps {
+  onSubmitForm: (values: ContactFormValues) => void | Promise<void>;
+}
+
+export type ContactFormValues = typeof initialValues;
+
+type AllProps = ContactFormProps & InjectedNotistackProps;
 
 const initialValues = {
   name: "",
@@ -15,25 +23,30 @@ const initialValues = {
   message: ""
 };
 
-const validationScheme = object().shape<typeof initialValues>({
-  name: string().required("Name is required"),
+const validationScheme = object().shape<ContactFormValues>({
+  name: string().required("Please fill in your name"),
   email: string()
-    .email("E-mail is not valid")
-    .required("E-mail is required"),
-  subject: string().required("Subject is required"),
-  message: string().required("Message is required")
+    .email("That isn't a valid e-mail")
+    .required("Please fill in your e-mail"),
+  subject: string().required("Please specify a subject"),
+  message: string().required("Please write a message")
 });
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC<AllProps> = ({ onSubmitForm, enqueueSnackbar }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationScheme}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 3000);
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        Promise.resolve()
+          .then(() => onSubmitForm(values))
+          .then(() => setSubmitting(false))
+          .then(() => {
+            resetForm();
+            enqueueSnackbar("Thank you for getting in touch!", {
+              variant: "success"
+            });
+          });
       }}
     >
       {({
@@ -47,73 +60,59 @@ const ContactForm: React.FC = () => {
         isSubmitting
       }) => (
         <form onSubmit={handleSubmit} onReset={handleReset}>
-          <TextField
+          <FormTextField
             name="name"
             label="Name"
             placeholder="Jane"
-            variant="outlined"
-            value={values.name}
-            helperText={touched.name && errors.name}
-            error={Boolean(touched.name && errors.name)}
+            values={values}
+            errors={errors}
+            touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
-            margin="normal"
             fullWidth
           />
-          <TextField
+          <FormTextField
             name="email"
             label="Email"
             placeholder="Doe"
-            variant="outlined"
-            value={values.email}
-            helperText={touched.email && errors.email}
-            error={Boolean(touched.email && errors.email)}
+            values={values}
+            errors={errors}
+            touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
-            margin="normal"
             fullWidth
           />
-          <TextField
+          <FormTextField
             name="subject"
             label="Subject"
             placeholder="Do you like cookies?"
-            variant="outlined"
-            value={values.subject}
-            helperText={touched.subject && errors.subject}
-            error={Boolean(touched.subject && errors.subject)}
+            values={values}
+            errors={errors}
+            touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
-            margin="normal"
             fullWidth
           />
-          <TextField
+          <FormTextField
             name="message"
             label="Message"
             placeholder="I love cookies"
-            variant="outlined"
-            value={values.message}
-            helperText={touched.message && errors.message}
-            error={Boolean(touched.message && errors.message)}
+            values={values}
+            errors={errors}
+            touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
-            margin="normal"
             rows="4"
+            fullWidth
             multiline
-            fullWidth
           />
-          <Button
-            color="secondary"
-            variant="contained"
-            type="submit"
-            disabled={isSubmitting}
-            fullWidth
-          >
-            {isSubmitting ? <CircularProgress size={24} /> : "Send"}
-          </Button>
+          <FormButton type="submit" isSubmitting={isSubmitting} fullWidth>
+            Send
+          </FormButton>
         </form>
       )}
     </Formik>
   );
 };
 
-export default ContactForm;
+export default withSnackbar(ContactForm);

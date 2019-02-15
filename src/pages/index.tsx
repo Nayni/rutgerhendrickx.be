@@ -1,12 +1,16 @@
 import React from "react";
 
-import { styled } from "@material-ui/styles";
 import { graphql } from "gatsby";
+
+import { styled } from "@material-ui/styles";
 
 import Certifications, {
   CertificationFragmentProps
 } from "../components/Certifications";
-import Contact, { ContactImageFragmentProps } from "../components/Contact";
+import Contact, {
+  ContactFormValues,
+  ContactImageFragmentProps
+} from "../components/Contact";
 import Education, { EducationFragmentProps } from "../components/Education";
 import Experience, { ExperienceFragmentProps } from "../components/Experience";
 import Header from "../components/Header";
@@ -16,6 +20,7 @@ import Introduction, {
 } from "../components/Introduction";
 import Page from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
+import { submitToFormcarry } from "../utils/formcarry";
 
 interface IndexQueryProps {
   data: HeroImageFragmentProps &
@@ -73,6 +78,9 @@ const IndexPage: React.FC<IndexPageProps> = ({
   const educations = allEducationJson.edges.map(edge => edge.node);
   const experiences = allExperiencesJson.edges.map(edge => edge.node);
 
+  const handleContactFormSubmit = (values: ContactFormValues) =>
+    submitToFormcarry(values);
+
   return (
     <Page
       title="Home"
@@ -95,7 +103,10 @@ const IndexPage: React.FC<IndexPageProps> = ({
         <Experience experiences={experiences} />
         <Certifications certifications={certifications} />
         <Education educations={educations} />
-        <Contact contactImage={contactImage.childImageSharp.fluid} />
+        <Contact
+          contactImage={contactImage.childImageSharp.fluid}
+          onSubmitForm={handleContactFormSubmit}
+        />
       </Content>
     </Page>
   );
