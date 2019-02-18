@@ -80,13 +80,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
   }
 }) => {
   const handleFormcarrySubmit = useFormCarry<ContactFormValues>();
+
   const introduction = allIntroductionJson.edges[0].node;
   const certifications = allCertificationsJson.edges.map(edge => edge.node);
   const educations = allEducationJson.edges.map(edge => edge.node);
   const experiences = allExperiencesJson.edges.map(edge => edge.node);
-
-  const handleContactFormSubmit = (values: ContactFormValues) =>
-    submitToFormcarry(values);
 
   return (
     <Page
@@ -104,6 +102,9 @@ const IndexPage: React.FC<IndexPageProps> = ({
         heroSubText={introduction.title}
         heroImage={heroImage.childImageSharp.fluid}
         profileImage={profileImage.childImageSharp.fluid}
+        mailto={`mailto:${introduction.email}`}
+        linkedin={introduction.linkedin}
+        github={introduction.github}
       />
       <Content>
         <Introduction description={introduction.description} />

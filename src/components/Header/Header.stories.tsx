@@ -20,5 +20,8 @@ storiesOf("Header", module).add("default", () => (
     }}
     heroText="Hero Text"
     heroSubText="Hero Sub Text"
+    mailto="mailto:rutgerhendrickx@gmail.com"
+    linkedin="https://www.linkedin.com/in/rutger-hendrickx-845a23112/"
+    github="https://github.com/nayni"
   />
 ));

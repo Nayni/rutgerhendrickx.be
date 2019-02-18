@@ -7,9 +7,9 @@ import { FluidObject } from "gatsby-image";
 import Hero, { HeroSubText, HeroText } from "../Hero";
 import ProfilePicture from "../ProfilePicture";
 import HeaderGridItem from "./HeaderGridItem";
-import HeaderSocials from "./HeaderSocials";
+import HeaderSocials, { HeaderSocialsProps } from "./HeaderSocials";
 
-interface HeaderProps {
+interface HeaderProps extends HeaderSocialsProps {
   heroImage: FluidObject;
   heroText: string;
   heroSubText: string;
@@ -24,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({
   heroImage,
   heroText,
   heroSubText,
-  profileImage
+  profileImage,
+  ...socialProps
 }) => {
   return (
     <header>
@@ -40,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
             <HeroSubText>{heroSubText}</HeroSubText>
           </HeaderGridItem>
           <HeaderSocialGridItem>
-            <HeaderSocials />
+            <HeaderSocials {...socialProps} />
           </HeaderSocialGridItem>
         </Grid>
       </Hero>
