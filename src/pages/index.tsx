@@ -129,6 +129,11 @@ export const query = graphql`
       edges {
         node {
           ...IntroductionFragment
+          name
+          title
+          email
+          linkedin
+          github
         }
       }
     }
