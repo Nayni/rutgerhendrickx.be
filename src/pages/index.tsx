@@ -2,8 +2,6 @@ import React from "react";
 
 import { graphql } from "gatsby";
 
-import { styled } from "@material-ui/styles";
-
 import Certifications, {
   CertificationFragmentProps
 } from "../components/Certifications";
@@ -18,7 +16,7 @@ import { HeroImageFragmentProps } from "../components/Hero";
 import Introduction, {
   IntroductionFragmentProps
 } from "../components/Introduction";
-import Page from "../components/Page";
+import Page, { PageContent } from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
 import { useFormCarry } from "../utils";
 
@@ -56,17 +54,6 @@ interface IndexQueryProps {
 }
 
 type IndexPageProps = IndexQueryProps;
-
-const Content = styled("div")({
-  maxWidth: "900px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  marginTop: "20px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center"
-});
 
 const IndexPage: React.FC<IndexPageProps> = ({
   data: {
@@ -106,7 +93,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
         linkedin={introduction.linkedin}
         github={introduction.github}
       />
-      <Content>
+      <PageContent>
         <Introduction description={introduction.description} />
         <Experience experiences={experiences} />
         <Certifications certifications={certifications} />
@@ -115,7 +102,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
           contactImage={contactImage.childImageSharp.fluid}
           onSubmitForm={handleFormcarrySubmit}
         />
-      </Content>
+      </PageContent>
     </Page>
   );
 };
