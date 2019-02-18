@@ -2,6 +2,8 @@ import React from "react";
 
 import { graphql } from "gatsby";
 
+import { Person, School, Timeline } from "@material-ui/icons";
+
 import Certifications, {
   CertificationFragmentProps
 } from "../components/Certifications";
@@ -13,9 +15,12 @@ import Education, { EducationFragmentProps } from "../components/Education";
 import Experience, { ExperienceFragmentProps } from "../components/Experience";
 import Header from "../components/Header";
 import { HeroImageFragmentProps } from "../components/Hero";
+import CertificateIcon from "../components/icons/CertificateIcon";
+import MailIcon from "../components/icons/MailIcon";
 import Introduction, {
   IntroductionFragmentProps
 } from "../components/Introduction";
+import Menu, { MenuDrawer, MenuItem, useMenuDrawer } from "../components/Menu";
 import Page, { PageContent } from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
 import { useFormCarry } from "../utils";
@@ -67,6 +72,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
   }
 }) => {
   const handleFormcarrySubmit = useFormCarry<ContactFormValues>();
+  const { isOpen, openMenu, closeMenu } = useMenuDrawer();
 
   const introduction = allIntroductionJson.edges[0].node;
   const certifications = allCertificationsJson.edges.map(edge => edge.node);
@@ -92,7 +98,17 @@ const IndexPage: React.FC<IndexPageProps> = ({
         mailto={`mailto:${introduction.email}`}
         linkedin={introduction.linkedin}
         github={introduction.github}
+        onMenuOpen={openMenu}
       />
+      <MenuDrawer isOpen={isOpen} onClose={closeMenu}>
+        <Menu>
+          <MenuItem label="Introduction" icon={Person} />
+          <MenuItem label="Experience" icon={Timeline} />
+          <MenuItem label="Certifications" icon={CertificateIcon} />
+          <MenuItem label="Education" icon={School} />
+          <MenuItem label="Contact" icon={MailIcon} />
+        </Menu>
+      </MenuDrawer>
       <PageContent>
         <Introduction description={introduction.description} />
         <Experience experiences={experiences} />
