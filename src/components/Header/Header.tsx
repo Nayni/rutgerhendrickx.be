@@ -11,7 +11,7 @@ import HeaderGridItem from "./HeaderGridItem";
 import HeaderMenuButton from "./HeaderMenuButton";
 import HeaderSocials, { HeaderSocialsProps } from "./HeaderSocials";
 
-interface HeaderProps extends HeaderSocialsProps {
+interface HeaderProps {
   heroImage: FluidObject;
   heroText: string;
   heroSubText: string;
