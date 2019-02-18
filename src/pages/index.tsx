@@ -20,7 +20,7 @@ import Introduction, {
 } from "../components/Introduction";
 import Page from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
-import { submitToFormcarry } from "../utils";
+import { useFormCarry } from "../utils";
 
 interface IndexQueryProps {
   data: HeroImageFragmentProps &
@@ -73,7 +73,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     allExperiencesJson
   }
 }) => {
-  const introDescription = allIntroductionJson.edges[0].node.description;
+  const handleFormcarrySubmit = useFormCarry<ContactFormValues>();
   const certifications = allCertificationsJson.edges.map(edge => edge.node);
   const educations = allEducationJson.edges.map(edge => edge.node);
   const experiences = allExperiencesJson.edges.map(edge => edge.node);
@@ -105,7 +105,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
         <Education educations={educations} />
         <Contact
           contactImage={contactImage.childImageSharp.fluid}
-          onSubmitForm={handleContactFormSubmit}
+          onSubmitForm={handleFormcarrySubmit}
         />
       </Content>
     </Page>
