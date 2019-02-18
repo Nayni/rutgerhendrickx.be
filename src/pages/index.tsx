@@ -28,7 +28,13 @@ interface IndexQueryProps {
     ContactImageFragmentProps & {
       allIntroductionJson: {
         edges: Array<{
-          node: IntroductionFragmentProps;
+          node: IntroductionFragmentProps & {
+            name: string;
+            title: string;
+            email: string;
+            github: string;
+            linkedin: string;
+          };
         }>;
       };
       allCertificationsJson: {
@@ -74,6 +80,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
   }
 }) => {
   const handleFormcarrySubmit = useFormCarry<ContactFormValues>();
+  const introduction = allIntroductionJson.edges[0].node;
   const certifications = allCertificationsJson.edges.map(edge => edge.node);
   const educations = allEducationJson.edges.map(edge => edge.node);
   const experiences = allExperiencesJson.edges.map(edge => edge.node);
@@ -93,13 +100,13 @@ const IndexPage: React.FC<IndexPageProps> = ({
       ]}
     >
       <Header
-        heroText="Rutger Hendrickx"
-        heroSubText="Full Stack Developer"
+        heroText={introduction.name}
+        heroSubText={introduction.title}
         heroImage={heroImage.childImageSharp.fluid}
         profileImage={profileImage.childImageSharp.fluid}
       />
       <Content>
-        <Introduction description={introDescription} />
+        <Introduction description={introduction.description} />
         <Experience experiences={experiences} />
         <Certifications certifications={certifications} />
         <Education educations={educations} />
