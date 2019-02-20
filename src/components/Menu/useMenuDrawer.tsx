@@ -7,7 +7,7 @@ export interface MenuDrawerHookProps {
 }
 
 const useMenuDrawer = (): MenuDrawerHookProps => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
