@@ -100,7 +100,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
         mailto={`mailto:${introduction.email}`}
         linkedin={introduction.linkedin}
         github={introduction.github}
-        onMenuOpen={openMenu}
+        onMenuClick={openMenu}
       />
       <MenuDrawer isOpen={isOpen} onClose={closeMenu}>
         <Menu>

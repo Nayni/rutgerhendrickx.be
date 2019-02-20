@@ -7,6 +7,7 @@ import { styled } from "@material-ui/styles";
 
 import Hero, { HeroSubText, HeroText } from "../Hero";
 import ProfilePicture from "../ProfilePicture";
+import StickyHeader, { useStickyHeaderDetection } from "../StickyHeader";
 import HeaderGridItem from "./HeaderGridItem";
 import HeaderMenuButton from "./HeaderMenuButton";
 import HeaderSocials, { HeaderSocialsProps } from "./HeaderSocials";
@@ -16,7 +17,7 @@ interface HeaderProps {
   heroText: string;
   heroSubText: string;
   profileImage: FluidObject;
-  onMenuOpen: () => void;
+  onMenuClick: () => void;
 }
 
 type AllProps = HeaderProps & HeaderSocialsProps;
@@ -30,13 +31,16 @@ const Header: React.FC<AllProps> = ({
   heroText,
   heroSubText,
   profileImage,
-  onMenuOpen,
+  onMenuClick,
   ...socialProps
 }) => {
+  const showStickyHeader = useStickyHeaderDetection({ yOffset: 150 });
+
   return (
     <header>
+      {showStickyHeader && <StickyHeader onMenuClick={onMenuClick} />}
       <Hero imgFluid={heroImage}>
-        <HeaderMenuButton onMenuOpen={onMenuOpen} />
+        <HeaderMenuButton onMenuOpen={onMenuClick} />
         <Grid container>
           <HeaderGridItem>
             <ProfilePicture fluid={profileImage} />
