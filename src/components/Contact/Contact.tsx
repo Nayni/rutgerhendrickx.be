@@ -5,7 +5,6 @@ import { FluidObject } from "gatsby-image";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 
-import Section, { SectionTitle } from "../Section";
 import ContactForm, { ContactFormProps } from "./ContactForm";
 import ContactImage from "./ContactImage";
 import ContactPaper from "./ContactPaper";
@@ -27,25 +26,22 @@ type AllProps = ContactProps & ContactFormProps;
 
 const Contact: React.FC<AllProps> = ({ contactImage, onSubmitForm }) => {
   return (
-    <Section>
-      <SectionTitle>Contact</SectionTitle>
-      <Grid container spacing={16}>
-        <Grid item xs={12} md={6}>
+    <Grid container spacing={16}>
+      <Grid item xs={12} md={6}>
+        <ContactPaper>
+          <ContactPaperContent>
+            <ContactForm onSubmitForm={onSubmitForm} />
+          </ContactPaperContent>
+        </ContactPaper>
+      </Grid>
+      <Hidden only={["xs"]}>
+        <Grid item md={6}>
           <ContactPaper>
-            <ContactPaperContent>
-              <ContactForm onSubmitForm={onSubmitForm} />
-            </ContactPaperContent>
+            <ContactImage fluid={contactImage} />
           </ContactPaper>
         </Grid>
-        <Hidden only={["xs"]}>
-          <Grid item md={6}>
-            <ContactPaper>
-              <ContactImage fluid={contactImage} />
-            </ContactPaper>
-          </Grid>
-        </Hidden>
-      </Grid>
-    </Section>
+      </Hidden>
+    </Grid>
   );
 };
 

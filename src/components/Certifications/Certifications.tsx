@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
 import CertificateIcon from "../icons/CertificateIcon";
-import Section, { SectionTitle } from "../Section";
 import CertificationCard from "./CertificationCard";
 
 export interface CertificationFragmentProps {
@@ -41,32 +40,29 @@ const Certifications: React.FC<CertificationsProps> = ({ certifications }) => {
   const classes = useStyles();
 
   return (
-    <Section>
-      <SectionTitle>Certifications</SectionTitle>
-      <Grid container spacing={16}>
-        {certifications.map((certification, index) => (
-          <Grid key={`certification-${index}`} item xs={12} md={6}>
-            <CertificationCard icon={CertificateIcon}>
-              <Typography className={classes.nameText}>
-                {certification.name}
-              </Typography>
-              <Typography
-                className={cx(classes.authorityText, classes.overline)}
-                variant="overline"
-              >
-                {certification.authority}
-              </Typography>
-              <Typography
-                className={cx(classes.dateText, classes.overline)}
-                variant="overline"
-              >
-                {certification.date}
-              </Typography>
-            </CertificationCard>
-          </Grid>
-        ))}
-      </Grid>
-    </Section>
+    <Grid container spacing={16}>
+      {certifications.map((certification, index) => (
+        <Grid key={`certification-${index}`} item xs={12} md={6}>
+          <CertificationCard icon={CertificateIcon}>
+            <Typography className={classes.nameText}>
+              {certification.name}
+            </Typography>
+            <Typography
+              className={cx(classes.authorityText, classes.overline)}
+              variant="overline"
+            >
+              {certification.authority}
+            </Typography>
+            <Typography
+              className={cx(classes.dateText, classes.overline)}
+              variant="overline"
+            >
+              {certification.date}
+            </Typography>
+          </CertificationCard>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

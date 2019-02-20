@@ -40,11 +40,11 @@ const FormTextField: React.FC<FormTextFieldProps> = ({
       placeholder={placeholder}
       variant="outlined"
       value={values[name]}
-      helperText={touched[name] && errors[name]}
+      helperText={(touched[name] && errors[name]) || " "}
       error={Boolean(touched[name] && errors[name])}
       onChange={onChange}
       onBlur={onBlur}
-      margin="normal"
+      margin="dense"
       {...rest}
     />
   );

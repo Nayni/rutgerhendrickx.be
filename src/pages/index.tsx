@@ -23,7 +23,8 @@ import Introduction, {
 import Menu, { MenuDrawer, MenuItem, useMenuDrawer } from "../components/Menu";
 import Page, { PageContent } from "../components/Page";
 import { ProfileImageFragmentProps } from "../components/ProfilePicture";
-import { useFormCarry } from "../utils";
+import Section, { SectionTitle } from "../components/Section";
+import { useAutoScrollToAnchor, useFormCarry } from "../utils";
 
 interface IndexQueryProps {
   data: HeroImageFragmentProps &
@@ -71,6 +72,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     allExperiencesJson
   }
 }) => {
+  useAutoScrollToAnchor();
   const handleFormcarrySubmit = useFormCarry<ContactFormValues>();
   const { isOpen, openMenu, closeMenu } = useMenuDrawer();
 
@@ -102,22 +104,65 @@ const IndexPage: React.FC<IndexPageProps> = ({
       />
       <MenuDrawer isOpen={isOpen} onClose={closeMenu}>
         <Menu>
-          <MenuItem label="Introduction" icon={Person} />
-          <MenuItem label="Experience" icon={Timeline} />
-          <MenuItem label="Certifications" icon={CertificateIcon} />
-          <MenuItem label="Education" icon={School} />
-          <MenuItem label="Contact" icon={MailIcon} />
+          <MenuItem
+            icon={Person}
+            label="Introduction"
+            anchor="intro"
+            beforeScrollAnimation={closeMenu}
+          />
+          <MenuItem
+            icon={Timeline}
+            label="Experience"
+            anchor="experience"
+            beforeScrollAnimation={closeMenu}
+          />
+          <MenuItem
+            icon={CertificateIcon}
+            label="Certifications"
+            anchor="certifications"
+            beforeScrollAnimation={closeMenu}
+          />
+          <MenuItem
+            icon={School}
+            label="Education"
+            anchor="education"
+            beforeScrollAnimation={closeMenu}
+          />
+          <MenuItem
+            icon={MailIcon}
+            label="Contact"
+            anchor="contact"
+            beforeScrollAnimation={closeMenu}
+          />
         </Menu>
       </MenuDrawer>
       <PageContent>
-        <Introduction description={introduction.description} />
-        <Experience experiences={experiences} />
-        <Certifications certifications={certifications} />
-        <Education educations={educations} />
-        <Contact
-          contactImage={contactImage.childImageSharp.fluid}
-          onSubmitForm={handleFormcarrySubmit}
-        />
+        <Section id="intro">
+          <SectionTitle>Hey there!</SectionTitle>
+          <Introduction
+            description={introduction.description}
+            contactAnchor="contact"
+          />
+        </Section>
+        <Section id="experience">
+          <SectionTitle>Experience</SectionTitle>
+          <Experience experiences={experiences} />
+        </Section>
+        <Section id="certifications">
+          <SectionTitle>Certifications</SectionTitle>
+          <Certifications certifications={certifications} />
+        </Section>
+        <Section id="education">
+          <SectionTitle>Education</SectionTitle>
+          <Education educations={educations} />
+        </Section>
+        <Section id="contact">
+          <SectionTitle>Contact</SectionTitle>
+          <Contact
+            contactImage={contactImage.childImageSharp.fluid}
+            onSubmitForm={handleFormcarrySubmit}
+          />
+        </Section>
       </PageContent>
     </Page>
   );
