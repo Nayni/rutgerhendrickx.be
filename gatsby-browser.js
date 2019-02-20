@@ -39,8 +39,10 @@ const wrapRootElement = ({ element }, options) => {
     <StylesProvider generateClassName={generateClassName}>
       <ThemeProvider theme={theme}>
         <SnackbarProvider maxSnack={3}>
-          <CssBaseline />
-          {element}
+          <React.Fragment>
+            <CssBaseline />
+            {element}
+          </React.Fragment>
         </SnackbarProvider>
       </ThemeProvider>
     </StylesProvider>

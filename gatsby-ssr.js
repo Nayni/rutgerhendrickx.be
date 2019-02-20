@@ -48,8 +48,10 @@ const wrapRootElement = ({ element, pathname }) => {
     >
       <ThemeProvider theme={theme}>
         <SnackbarProvider maxSnack={3}>
-          <CssBaseline />
-          {element}
+          <React.Fragment>
+            <CssBaseline />
+            {element}
+          </React.Fragment>
         </SnackbarProvider>
       </ThemeProvider>
     </StylesProvider>
