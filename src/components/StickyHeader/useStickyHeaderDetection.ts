@@ -1,6 +1,4 @@
-import React from "react";
-
-import { canUseDOM } from "../../utils";
+import { useWindowScrollPosition } from "../../utils";
 
 interface StickyHeaderDetectionOptions {
   yOffset: number;
@@ -9,26 +7,9 @@ interface StickyHeaderDetectionOptions {
 const useStickyHeaderDetection = ({
   yOffset
 }: StickyHeaderDetectionOptions) => {
-  const currentPageYOffset = canUseDOM() ? window.pageYOffset : 0;
-  const [pageYOffset, setPageYOffset] = React.useState(currentPageYOffset);
+  const scrollPosition = useWindowScrollPosition({ throttleMs: 100 });
 
-  const onScroll = () => {
-    if (canUseDOM()) {
-      setPageYOffset(window.pageYOffset);
-    }
-  };
-
-  React.useEffect(() => {
-    if (!canUseDOM()) {
-      return;
-    }
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  });
-
-  return pageYOffset > yOffset;
+  return scrollPosition.y > yOffset;
 };
 
 export default useStickyHeaderDetection;
