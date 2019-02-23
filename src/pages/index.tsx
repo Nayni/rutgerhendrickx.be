@@ -38,6 +38,7 @@ interface IndexQueryProps {
             email: string;
             github: string;
             linkedin: string;
+            cvDownloadUrl: string;
           };
         }>;
       };
@@ -142,6 +143,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
           <Introduction
             description={introduction.description}
             contactAnchor="contact"
+            downloadUrl={introduction.cvDownloadUrl}
           />
         </Section>
         <Section id="experience">
@@ -182,6 +184,7 @@ export const query = graphql`
           email
           linkedin
           github
+          cvDownloadUrl
         }
       }
     }

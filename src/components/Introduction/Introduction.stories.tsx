@@ -11,5 +11,6 @@ storiesOf("Introduction", module).add("default", () => (
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed venenatis purus. Nulla consectetur maximus ligula a pulvinar. Morbi viverra tortor eu nisi blandit sagittis. ",
       "Integer ac augue ante. Cras quis imperdiet odio. Donec vulputate magna a velit eleifend ultrices. Nullam in placerat mi. Etiam rhoncus feugiat feugiat. Mauris quam lectus, tempus eget cursus sed, malesuada tempor lectus."
     ]}
+    downloadUrl="https://www.google.be"
   />
 ));

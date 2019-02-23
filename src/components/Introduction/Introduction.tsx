@@ -16,11 +16,13 @@ export interface IntroductionFragmentProps {
 interface IntroductionProps {
   description: string[];
   contactAnchor: string;
+  downloadUrl: string;
 }
 
 const Introduction: React.FC<IntroductionProps> = ({
   description,
-  contactAnchor
+  contactAnchor,
+  downloadUrl
 }) => {
   const anchorProps = useScrollableAnchor({ anchor: contactAnchor });
 
@@ -37,7 +39,13 @@ const Introduction: React.FC<IntroductionProps> = ({
       <IntroductionPaperContent>
         <Grid container justify="center" spacing={8}>
           <Grid item>
-            <Button color="secondary" variant="contained">
+            <Button
+              color="secondary"
+              variant="contained"
+              component="a"
+              href={downloadUrl}
+              target="_blank"
+            >
               Download CV
             </Button>
           </Grid>
