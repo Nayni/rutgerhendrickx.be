@@ -69,6 +69,9 @@ const ContactForm: React.FC<AllProps> = ({ onSubmitForm, enqueueSnackbar }) => {
             touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
+            inputProps={{
+              ["aria-label"]: "Name"
+            }}
             fullWidth
           />
           <FormTextField
@@ -80,6 +83,9 @@ const ContactForm: React.FC<AllProps> = ({ onSubmitForm, enqueueSnackbar }) => {
             touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
+            inputProps={{
+              ["aria-label"]: "Email"
+            }}
             fullWidth
           />
           <FormTextField
@@ -91,6 +97,9 @@ const ContactForm: React.FC<AllProps> = ({ onSubmitForm, enqueueSnackbar }) => {
             touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
+            inputProps={{
+              ["aria-label"]: "Subject"
+            }}
             fullWidth
           />
           <FormTextField
@@ -102,6 +111,9 @@ const ContactForm: React.FC<AllProps> = ({ onSubmitForm, enqueueSnackbar }) => {
             touched={touched}
             onChange={handleChange}
             onBlur={handleBlur}
+            inputProps={{
+              ["aria-label"]: "Message"
+            }}
             rows="4"
             fullWidth
             multiline

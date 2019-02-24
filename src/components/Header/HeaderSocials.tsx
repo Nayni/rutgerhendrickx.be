@@ -22,17 +22,22 @@ const HeaderSocials: React.FC<HeaderSocialsProps> = ({
     <div>
       <Grid container spacing={8}>
         <Grid item>
-          <Fab component="a" href={mailto} target="_blank">
+          <Fab component="a" href={mailto} target="_blank" aria-label="Mail">
             <MailIcon />
           </Fab>
         </Grid>
         <Grid item>
-          <Fab component="a" href={linkedin} target="_blank">
+          <Fab
+            component="a"
+            href={linkedin}
+            target="_blank"
+            aria-label="LinkedIn"
+          >
             <LinkedInIcon />
           </Fab>
         </Grid>
         <Grid item>
-          <Fab component="a" href={github} target="_blank">
+          <Fab component="a" href={github} target="_blank" aria-label="Github">
             <GithubIcon />
           </Fab>
         </Grid>

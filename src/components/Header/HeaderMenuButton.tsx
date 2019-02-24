@@ -17,7 +17,7 @@ const Container = styled("div")({
 const HeaderMenuButton: React.FC<HeaderMenuButtonProps> = ({ onMenuOpen }) => {
   return (
     <Container>
-      <IconButton color="secondary" onClick={onMenuOpen}>
+      <IconButton color="secondary" onClick={onMenuOpen} aria-label="Menu">
         <Menu />
       </IconButton>
     </Container>
