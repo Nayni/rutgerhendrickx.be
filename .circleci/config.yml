@@ -28,3 +28,38 @@ jobs:
       - run:
           name: Gatsby Build
           command: yarn build
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - package.json
+            - yarn.lock
+            - node_modules
+            - public
+            - .firebasesrc
+            - firebase.json
+  deploy:
+    docker:
+      - image: circleci/node:10.15
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: "Firebase Deploy"
+          command: "yarn deploy -- --token=$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
