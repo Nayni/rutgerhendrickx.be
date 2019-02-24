@@ -15,7 +15,8 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
@@ -64,6 +65,7 @@
     "@types/yup": "^0.26.9",
     "babel-loader": "^8.0.5",
     "babel-preset-react-app": "^7.0.1",
+    "firebase-tools": "^6.4.0",
     "prettier": "^1.16.4",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
