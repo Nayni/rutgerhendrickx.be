@@ -16,8 +16,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy": "firebase deploy"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
