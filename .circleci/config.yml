@@ -59,7 +59,13 @@ workflows:
       - build
   build-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            # ignore any commit on any branch by default
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/
       - deploy:
           requires:
             - build
