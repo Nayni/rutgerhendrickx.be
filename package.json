@@ -2,7 +2,7 @@
   "name": "rhendrickx-cv",
   "private": true,
   "description": "My Personal CV",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Rutger Hendrickx <rutgerhendrickx@gmail.com>",
   "keywords": [
     "gatsby"
