@@ -54,6 +54,9 @@ jobs:
 
 workflows:
   version: 2
+  build:
+    jobs:
+      - build
   build-deploy:
     jobs:
       - build
@@ -61,5 +64,8 @@ workflows:
           requires:
             - build
           filters:
+            # ignore any commit on any branch by default
             branches:
-              only: master
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/

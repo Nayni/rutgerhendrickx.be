@@ -7,7 +7,7 @@
   rutgerhendrickx.be
 </h1>
 
-This is the source code to my own personal website (a curriculum vitae). It's built using:
+This is the source code of my own personal website (a curriculum vitae). It's built using:
 
 - [Gatsby](https://www.gatsbyjs.org/)
 - [React (duh)](https://reactjs.org/)
@@ -44,4 +44,15 @@ The project is hosted using [Firebase](https://firebase.google.com/).
 
 ## 💫 Deploy
 
-TODO: Write deployment docs
+This project uses [CircleCI](https://circleci.com) to build and deploy itself. To deploy a new version to production:
+
+```sh
+# checkout master
+git checkout master
+
+# create a tag of the release
+git tag v1.0.0
+
+# push the tag
+git push --tags origin
+```
