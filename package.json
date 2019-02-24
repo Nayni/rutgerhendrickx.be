@@ -9,7 +9,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "clean": "rimraf public",
+    "build": "yarn clean && gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
@@ -67,6 +68,7 @@
     "babel-preset-react-app": "^7.0.1",
     "firebase-tools": "^6.4.0",
     "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",
