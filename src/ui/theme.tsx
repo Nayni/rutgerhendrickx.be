@@ -67,9 +67,9 @@ export function useTheme() {
 	useEffect(() => setMounted(true), []);
 
 	const currentTheme = useMemo<Theme>(() => {
-		if (!mounted) return "light";
+		if (!mounted) return "dark";
 
-		return (resolvedTheme ?? "light") as Theme;
+		return (resolvedTheme ?? "dark") as Theme;
 	}, [mounted, resolvedTheme]);
 
 	const toggleTheme = useCallback(() => {
